@@ -2,6 +2,10 @@ import React, { Component } from 'react';
 import styled from 'styled-components';
 import theme from './../../styles/theme.js';
 
+import Input from './elements/Input';
+import Select from './elements/Select';
+import SelectionsData from './elements/SelectionsData';
+
 class Form extends Component {
   render() {
     return (
@@ -13,29 +17,40 @@ class Form extends Component {
           Register today and live a naturally connected life.
         </SubheaderText>
 
-        <InputField type="text" placeholder="First Name *" />
-        <InputField type="text" placeholder="Last Name *" />
-        <InputField type="text" placeholder="Email *" />
-        <InputField type="text" placeholder="Phone Number" />
-        <InputField type="text" placeholder="Employer" />
-        <InputField type="text" placeholder="Job Title" />
-        <InputField type="text" placeholder="Street" />
-        <InputField type="text" placeholder="Apt #, Unit, Suite" />
-        <InputField type="text" placeholder="Postcode/Zip" />
-        <InputField type="text" placeholder="City" />
-        <InputField type="text" placeholder="Province / State" />
+        <Input type="text" placeholder="First Name *" required />
+        <Input type="text" placeholder="Last Name *" required />
+        <Input type="text" placeholder="Email *" required />
+        <Input type="text" placeholder="Phone Number" />
+        <Input type="text" placeholder="Employer" />
+        <Input type="text" placeholder="Job Title" />
+        <Input type="text" placeholder="Street" />
+        <Input type="text" placeholder="Apt #, Unit, Suite" />
+        <Input type="text" placeholder="Postcode/Zip" />
+        <Input type="text" placeholder="City" />
+        <Input type="text" placeholder="Province / State" />
         {/* TODO: Dropdown with countries */}
-        <SelectMenu type="text" placeholder="Canada">
-          <option value="Canada">Canada</option>
-        </SelectMenu>
-        <SelectMenu type="text" placeholder="Contact Preference">
+        {/* <Select >
+          <option selected value="Canada">
+            Canada
+          </option>
+        </Select>
+        <Select type="text" placeholder="Contact Preference">
           <option value="any">Any</option>
           <option value="any">Email</option>
           <option value="any">Phone</option>
           <option value="any">Work</option>
           <option value="any">Agent</option>
           <option value="any">Text Message</option>
-        </SelectMenu>
+        </Select> */}
+
+        <Select options={SelectionsData[0].options}>
+          {SelectionsData[0].question}
+        </Select>
+
+        <Text>
+          By cliking submit, you have agreed to receive emails from Westgate.
+        </Text>
+        <Button type="submit">Submit</Button>
       </FormWrapper>
     );
   }
@@ -50,10 +65,22 @@ const HeaderText = styled.h1`
   font-size: 24px;
   text-transform: uppercase;
   padding: 8% 0;
+  transition: 0.4s ease;
 
   &.purple {
     color: white;
   }
+
+  @media (min-width: 768px) {
+    font-size: 30px;
+  }
+`;
+
+const Text = styled.p`
+  color: ${theme.colorLightGray};
+  font-size: 16px;
+  margin: 40px 0;
+  text-align: center;
 `;
 
 const SubheaderText = styled.h2`
@@ -63,32 +90,14 @@ const SubheaderText = styled.h2`
   letter-spacing: 1.5px;
 `;
 
-const InputField = styled.input`
-  width: 100%;
-  background-color: transparent;
-  border: 0px;
-  border-bottom: 1px solid ${theme.colorLightGray};
-  line-height: 2;
-  font-size: 16px;
-  margin: 10px 0;
-  padding: 10px 0;
-  color: white;
-  &:focus {
-    border: 1px solid ${theme.colorYellow};
-    outline: none !important;
-  }
-`;
-
-const SelectMenu = styled.select`
-  width: 100%;
-  background: transparent;
-  color: white;
-  border: none;
-  border-bottom: 1px solid ${theme.colorLightGray};
-  font-size: 16px;
-  line-height: 2;
-  margin: 10px 0;
-  padding: 10px 0;
+const Button = styled.button`
+  background-color: ${theme.colorYellow};
+  color: ${theme.colorPurple};
+  padding: 20px 50px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin: 0 auto;
+  display: block;
 `;
 
 export default Form;

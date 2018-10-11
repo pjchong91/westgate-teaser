@@ -13,29 +13,29 @@ const Footer = () => (
       specifications, and floorplans without prior notice. All ammenities are
       planned and are subject to change without notice.
     </Text>
-    <MapImage src={Map} />
 
-    <TextWrapper>
-      <Text className="light-gray">
-        For more information <br />
-        Please call or email
-      </Text>
+    <TextContainer>
+      <MapImage src={Map} />
+      <TextWrapper>
+        <Text className="light-gray">
+          For more information <br />
+          Please call or email
+        </Text>
 
-      {/*polymorphic prop - as?? */}
-      <Text as="a" className="larger">
-        604.370.6700
-      </Text>
-      <Text as="a" className="larger">
-        info@westgateliving.com
-      </Text>
-    </TextWrapper>
+        {/*polymorphic prop - as?? */}
+        <Text as="a" className="larger">
+          604.370.6700
+        </Text>
+        <Text as="a" className="larger">
+          info@westgateliving.com
+        </Text>
 
-    <TextWrapper>
-      <Text className="light-gray">Developed By</Text>
-      <ImageContainer>
-        <Image src={BeneLogo} alt="Bene Logo" />
-      </ImageContainer>
-    </TextWrapper>
+        <Text className="light-gray">Developed By</Text>
+        <ImageContainer>
+          <Image src={BeneLogo} alt="Bene Logo" />
+        </ImageContainer>
+      </TextWrapper>
+    </TextContainer>
   </FooterWrapper>
 );
 
@@ -43,6 +43,7 @@ const FooterWrapper = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
+  margin-top: 30px;
 `;
 
 const Text = styled.p`
@@ -60,6 +61,16 @@ const Text = styled.p`
   }
 `;
 
+const TextContainer = styled.div`
+  @media (min-width: 768px) {
+    display: flex;
+    flex-direction: row;
+
+    p {
+      text-align: left;
+    }
+  }
+`;
 const TextWrapper = styled.div`
   padding: 30px;
   display: flex;
@@ -70,11 +81,20 @@ const TextWrapper = styled.div`
 const MapImage = styled.img`
   width: 100%;
   margin: 10% 0;
+
+  @media (min-width: 768px) {
+    width: 60%;
+    display: inline-block;
+  }
 `;
 
 const ImageContainer = styled.div`
   max-width: 100%;
   margin: 20px auto;
+
+  @media (min-width: 768px) {
+    margin: 20px 0;
+  }
 `;
 
 const Image = styled.img`
