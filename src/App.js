@@ -29,7 +29,7 @@ class App extends Component {
         <Route
           render={({ location }) => (
             <AppWrapper>
-              <Header />
+              {/* <Header /> */}
               <TransitionGroup>
                 <CSSTransition
                   key={location.key}
