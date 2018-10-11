@@ -9,27 +9,27 @@ import SelectionsData from './elements/SelectionsData';
 class Form extends Component {
   render() {
     return (
-      <FormWrapper>
+      <FormWrapper id="register">
         <HeaderText className="purple">
           3 Bedroom Townhomes <br /> in Richmond
         </HeaderText>
         <SubheaderText>
           Register today and live a naturally connected life.
         </SubheaderText>
-
-        <Input type="text" placeholder="First Name *" required />
-        <Input type="text" placeholder="Last Name *" required />
-        <Input type="text" placeholder="Email *" required />
-        <Input type="text" placeholder="Phone Number" />
-        <Input type="text" placeholder="Employer" />
-        <Input type="text" placeholder="Job Title" />
-        <Input type="text" placeholder="Street" />
-        <Input type="text" placeholder="Apt #, Unit, Suite" />
-        <Input type="text" placeholder="Postcode/Zip" />
-        <Input type="text" placeholder="City" />
-        <Input type="text" placeholder="Province / State" />
-        {/* TODO: Dropdown with countries */}
-        {/* <Select >
+        <form>
+          <Input type="text" placeholder="First Name *" required />
+          <Input type="text" placeholder="Last Name *" required />
+          <Input type="text" placeholder="Email *" required />
+          <Input type="text" placeholder="Phone Number" />
+          <Input type="text" placeholder="Employer" />
+          <Input type="text" placeholder="Job Title" />
+          <Input type="text" placeholder="Street" />
+          <Input type="text" placeholder="Apt #, Unit, Suite" />
+          <Input type="text" placeholder="Postcode/Zip" />
+          <Input type="text" placeholder="City" />
+          <Input type="text" placeholder="Province / State" />
+          {/* TODO: Dropdown with countries */}
+          {/* <Select >
           <option selected value="Canada">
             Canada
           </option>
@@ -43,14 +43,15 @@ class Form extends Component {
           <option value="any">Text Message</option>
         </Select> */}
 
-        <Select options={SelectionsData[0].options}>
-          {SelectionsData[0].question}
-        </Select>
+          <Select options={SelectionsData[0].options}>
+            {SelectionsData[0].question}
+          </Select>
 
-        <Text>
-          By cliking submit, you have agreed to receive emails from Westgate.
-        </Text>
-        <Button type="submit">Submit</Button>
+          <Text>
+            By cliking submit, you have agreed to receive emails from Westgate.
+          </Text>
+          <Button type="submit">Submit</Button>
+        </form>
       </FormWrapper>
     );
   }

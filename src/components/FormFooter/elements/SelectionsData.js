@@ -14,4 +14,6 @@ const SelectionsData = [
   },
 ];
 
+//TODO: Is there a better way to make a selection of countries??
+
 export default SelectionsData;

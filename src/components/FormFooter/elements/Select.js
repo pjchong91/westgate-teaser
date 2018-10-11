@@ -31,6 +31,7 @@ const SelectMenu = styled.select`
   padding: 10px 0;
   border-radius: 0px;
   -webkit-appearance: none;
+  /* TODO: How to colour just the placeholder/disabled value in the light gray colour? */
   &::placeholder {
     color: ${theme.colorLightGray};
   }

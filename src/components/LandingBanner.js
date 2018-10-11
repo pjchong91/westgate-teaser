@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
 import theme from './../styles/theme';
+import AnchorLink from 'react-anchor-link-smooth-scroll';
 
 import HeroImage from './../assets/images/westgate_mask.svg';
 import HeroBackground from './../assets/images/Hero-Background.jpeg';
@@ -10,14 +11,16 @@ class LandingBanner extends Component {
   render() {
     return (
       <HeroSection>
-        <RegisterLink>Register</RegisterLink>
+        <AnchorLink className="anchor-link" href="#register">
+          Register
+        </AnchorLink>
         <MaskContainer>
-          <Image src={HeroImage} />
-          {/* <Span /> */}
+          <Image className="logo-w" src={HeroImage} />
+          <Span />
         </MaskContainer>
 
         <LogoContainer>
-          <Image src={Logo} alt="Westgate Logo" />
+          <Image className="logo" src={Logo} alt="Westgate Logo" />
         </LogoContainer>
       </HeroSection>
     );
@@ -25,10 +28,8 @@ class LandingBanner extends Component {
 }
 
 const HeroSection = styled.div`
-  /* background: url(${HeroImage}), url(${HeroBackground}); */
   background: url(${HeroBackground});
-  background-size: cover
-;
+  background-size: cover;
   background-repeat: no-repeat;
   background-position: 80% 10%;
   background-attachment: fixed;
@@ -38,15 +39,16 @@ const HeroSection = styled.div`
   justify-content: space-between;
   align-items: center;
   padding: 10% 0;
-`;
 
-const RegisterLink = styled.a`
-  text-transform: uppercase;
-  letter-spacing: 1.5px;
-  color: white;
+  .anchor-link {
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: white;
+    font-family: 'Futura';
 
-  &:hover {
-    text-decoration: underline;
+    &:hover {
+      text-decoration: underline;
+    }
   }
 `;
 
@@ -63,14 +65,19 @@ const LogoContainer = styled.div`
 const Image = styled.img`
   max-width: 100%;
   z-index: 2;
+  &.logo {
+    max-width: 255px;
+  }
+  &.logo-w {
+    max-width: 590px;
+  }
 `;
 
-// const Span = styled.span`
-//   background-color: ${theme.colorPurple};
-//   position: absolute;
-//   height: 100vh;
-//   width: 100vw;
-
-// `;
+const Span = styled.span`
+  background-color: ${theme.colorPurple};
+  position: absolute;
+  height: 100vh;
+  width: 100vw;
+`;
 
 export default LandingBanner;

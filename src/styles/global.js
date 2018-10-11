@@ -42,9 +42,19 @@ injectGlobal`
     height: 100%;
   }
 
-  @font-face {
+  /* @font-face {
     font-family: 'Roboto';
     src: url('/assets/fonts/Roboto-Regular.woff2') format('woff2'),
       url('/assets/fonts/Roboto-Regular.woff') format('woff');
-  }
+  } */
+
+@font-face {
+    font-family: 'Futura Std';
+    src: url(${require(`./../assets/fonts/FuturaStd-Book.woff2`)} format('woff2'),
+        url(${require(`./../assets/fonts/FuturaStd-Book.woff`)} format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+  
 `;
