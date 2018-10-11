@@ -37,6 +37,39 @@ class Home extends Component {
             </DescriptionText>
           </TextWrapper>
         </DescriptionSection>
+
+        <FormFooter>
+          <HeaderText className="purple">
+            3 Bedroom Townhomes <br /> in Richmond
+          </HeaderText>
+          <SubheaderText>
+            Register today and live a naturally connected life.
+          </SubheaderText>
+
+          <InputField type="text" placeholder="First Name *" />
+          <InputField type="text" placeholder="Last Name *" />
+          <InputField type="text" placeholder="Email *" />
+          <InputField type="text" placeholder="Phone Number" />
+          <InputField type="text" placeholder="Employer" />
+          <InputField type="text" placeholder="Job Title" />
+          <InputField type="text" placeholder="Street" />
+          <InputField type="text" placeholder="Apt #, Unit, Suite" />
+          <InputField type="text" placeholder="Postcode/Zip" />
+          <InputField type="text" placeholder="City" />
+          <InputField type="text" placeholder="Province / State" />
+          {/* TODO: Dropdown with countries */}
+          <SelectMenu type="text" placeholder="Canada">
+            <option value="Canada">Canada</option>
+          </SelectMenu>
+          <SelectMenu type="text" placeholder="Contact Preference">
+            <option value="any">Any</option>
+            <option value="any">Email</option>
+            <option value="any">Phone</option>
+            <option value="any">Work</option>
+            <option value="any">Agent</option>
+            <option value="any">Text Message</option>
+          </SelectMenu>
+        </FormFooter>
       </Root>
     );
   }
@@ -72,7 +105,7 @@ const ImageContainer = styled.div`
 `;
 const RegisterLink = styled.a`
   text-transform: uppercase;
-  letter-spacing: 1.5;
+  letter-spacing: 1.5px;
   color: white;
   &:hover {
     text-decoration: underline;
@@ -96,8 +129,8 @@ const DescriptionText = styled.p`
 const TextWrapper = styled.div`
   background: linear-gradient(
       to right,
-      rgba(255, 255, 255, 0.9),
-      rgba(255, 255, 255, 0.9)
+      rgba(255, 255, 255, 0.8),
+      rgba(255, 255, 255, 0.8)
     ),
     url(${DescriptionBackground});
   background-position: center;
@@ -113,6 +146,53 @@ const HeaderText = styled.h1`
   font-size: 24px;
   text-transform: uppercase;
   padding: 8% 0;
+
+  &.purple {
+    color: white;
+  }
+`;
+
+const FormFooter = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: ${theme.colorPurple};
+  padding: 2%;
+`;
+
+const SubheaderText = styled.h2`
+  color: white;
+  text-align: center;
+  font-size: 16px;
+  letter-spacing: 1.5px;
+`;
+
+const InputField = styled.input`
+  width: 100%;
+  background-color: transparent;
+  border: 0px;
+  border-bottom: 1px solid ${theme.colorLightGray};
+  line-height: 2;
+  font-size: 16px;
+  margin: 10px 0;
+  padding: 10px 0;
+  color: white;
+  &:focus {
+    border: 1px solid ${theme.colorYellow};
+    outline: none !important;
+  }
+`;
+const SelectMenu = styled.select`
+  width: 100%;
+  background: transparent;
+  color: white;
+  border: none;
+  border-bottom: 1px solid ${theme.colorLightGray};
+  font-size: 16px;
+  line-height: 2;
+  margin: 10px 0;
+  padding: 10px 0;
 `;
 
 export default Home;
