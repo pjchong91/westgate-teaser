@@ -50,9 +50,7 @@ const HeroSection = styled.div`
     letter-spacing: 1.5px;
     color: white;
     font-family: 'Futura';
-    &a {
-      z-index: 99;
-    }
+    z-index: 99;
 
     &:hover {
       text-decoration: underline;
@@ -63,7 +61,7 @@ const HeroSection = styled.div`
 const MaskContainer = styled.div`
   width: 80%;
   margin: 0 auto;
-  overflow: hidden;
+  position: relative;
   &.logo-w {
     max-width: 590px;
   }
@@ -76,6 +74,7 @@ const LogoContainer = styled.div`
 
 const Image = styled.img`
   max-width: 100%;
+  width: 100%;
   z-index: 2;
   &.logo {
     max-width: 255px;
@@ -88,20 +87,20 @@ const Span = styled.span`
   height: 100vh;
   width: 100vw;
   &:nth-child(2) {
-    bottom: -15px;
-    right: 87%;
+    bottom: 99%;
+    left: 0%;
   }
   &:nth-child(3) {
     right: 0;
-    top: -74%;
+    top: 95%;
   }
   &:nth-child(4) {
-    right: 0;
-    bottom: -74%;
+    right: 99%;
+    bottom: 0%;
   }
 
   &:last-child {
-    right: -87%;
+    left: 99%;
     top: 0%;
   }
 `;

@@ -35,6 +35,15 @@ const DescriptionSection = styled.div`
   justify-content: center;
   align-items: center;
   padding: 1rem;
+  background: linear-gradient(
+      to right,
+      rgba(255, 255, 255, 0.8),
+      rgba(255, 255, 255, 0.8)
+    ),
+    url(${DescriptionBackground});
+  background-position: bottom left;
+  background-size: 60%;
+  background-repeat: no-repeat;
 `;
 
 const HeaderText = styled.h1`
@@ -48,10 +57,14 @@ const HeaderText = styled.h1`
   &.purple {
     color: white;
   }
+  @media (min-width: 768px) {
+    font-size: 36px;
+  }
 `;
 
 const ImageContainer = styled.div`
-  max-width: 100%;
+  /* max-width: 100%; */
+  max-width: 972px;
 `;
 
 const Image = styled.img`
@@ -59,20 +72,13 @@ const Image = styled.img`
 `;
 
 const TextWrapper = styled.div`
-  background: linear-gradient(
-      to right,
-      rgba(255, 255, 255, 0.8),
-      rgba(255, 255, 255, 0.8)
-    ),
-    url(${DescriptionBackground});
-  background-position: center;
-  background-size: 110%;
-  background-repeat: no-repeat;
   padding: 8% 0;
+  max-width: 927px;
 `;
 
 const DescriptionText = styled.p`
   text-align: center;
+  font-family: 'Futura';
 
   line-height: 2;
 `;

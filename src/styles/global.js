@@ -49,7 +49,7 @@ injectGlobal`
   } */
 
 @font-face {
-    font-family: 'Futura Std';
+    font-family: 'Futura Std Book';
     src: url(${require(`./../assets/fonts/FuturaStd-Book.woff2`)} format('woff2'),
         url(${require(`./../assets/fonts/FuturaStd-Book.woff`)} format('woff');
     font-weight: normal;
