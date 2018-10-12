@@ -8,8 +8,6 @@ import 'src/styles/global';
 import { prerenderStyles } from 'src/plugins/prerender';
 import UpdateLanguage from 'src/plugins/language';
 
-import Header from 'components/Header';
-
 class App extends Component {
   componentDidMount() {
     prerenderStyles();
@@ -29,7 +27,6 @@ class App extends Component {
         <Route
           render={({ location }) => (
             <AppWrapper>
-              {/* <Header /> */}
               <TransitionGroup>
                 <CSSTransition
                   key={location.key}

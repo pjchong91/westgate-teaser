@@ -14,8 +14,11 @@ class LandingBanner extends Component {
         <AnchorLink className="anchor-link" href="#register">
           Register
         </AnchorLink>
-        <MaskContainer>
-          <Image className="logo-w" src={HeroImage} />
+        <MaskContainer className="logo-w">
+          <Image src={HeroImage} />
+          <Span />
+          <Span />
+          <Span />
           <Span />
         </MaskContainer>
 
@@ -39,12 +42,17 @@ const HeroSection = styled.div`
   justify-content: space-between;
   align-items: center;
   padding: 10% 0;
+  position: relative;
+  overflow: hidden;
 
   .anchor-link {
     text-transform: uppercase;
     letter-spacing: 1.5px;
     color: white;
     font-family: 'Futura';
+    &a {
+      z-index: 99;
+    }
 
     &:hover {
       text-decoration: underline;
@@ -56,10 +64,14 @@ const MaskContainer = styled.div`
   width: 80%;
   margin: 0 auto;
   overflow: hidden;
+  &.logo-w {
+    max-width: 590px;
+  }
 `;
 
 const LogoContainer = styled.div`
   max-width: 60%;
+  z-index: 99;
 `;
 
 const Image = styled.img`
@@ -68,9 +80,6 @@ const Image = styled.img`
   &.logo {
     max-width: 255px;
   }
-  &.logo-w {
-    max-width: 590px;
-  }
 `;
 
 const Span = styled.span`
@@ -78,6 +87,23 @@ const Span = styled.span`
   position: absolute;
   height: 100vh;
   width: 100vw;
+  &:nth-child(2) {
+    bottom: -15px;
+    right: 87%;
+  }
+  &:nth-child(3) {
+    right: 0;
+    top: -74%;
+  }
+  &:nth-child(4) {
+    right: 0;
+    bottom: -74%;
+  }
+
+  &:last-child {
+    right: -87%;
+    top: 0%;
+  }
 `;
 
 export default LandingBanner;

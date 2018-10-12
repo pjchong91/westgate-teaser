@@ -4,15 +4,16 @@ import theme from './../../../styles/theme';
 
 class Select extends Component {
   render() {
-    console.log(this.props, 'what my props');
     return (
-      <SelectMenu>
-        <option value="" disabled selected>
-          {this.props.children}
-        </option>
+      <SelectMenu defaultValue={this.props.children}>
+        {/* <option value="" disabled selected> */}
+        {/* {this.props.children}
+        </option> */}
         {this.props.options &&
           this.props.options.map(option => (
-            <option value={option.value}>{option.name}</option>
+            <option value={option.value} key={option.value}>
+              {option.name}
+            </option>
           ))}
       </SelectMenu>
     );
