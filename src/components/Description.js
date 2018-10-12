@@ -16,11 +16,11 @@ class Description extends Component {
             <br /> Parkside Homes
           </HeaderText>
         </ScrollAnimation>
-        {/* <ScrollAnimation> */}
-        <ImageContainer>
-          <Image src={Homes} alt="Homes" />
-        </ImageContainer>
-        {/* </ScrollAnimation> */}
+        <ScrollAnimation>
+          <ImageContainer>
+            <Image src={Homes} alt="Homes" />
+          </ImageContainer>
+        </ScrollAnimation>
         <ScrollAnimation>
           <TextWrapper>
             <DescriptionText>

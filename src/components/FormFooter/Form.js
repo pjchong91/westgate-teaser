@@ -43,8 +43,11 @@ class Form extends Component {
           <option value="any">Text Message</option>
         </Select> */}
 
-          <Select options={SelectionsData[0].options}>
+          <Select options={SelectionsData[0].options} required>
             {SelectionsData[0].question}
+          </Select>
+          <Select options={SelectionsData[1].options} required>
+            {SelectionsData[1].question}
           </Select>
 
           <Text>
