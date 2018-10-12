@@ -21,7 +21,11 @@ injectGlobal`
   }
 
   body {
-    font-family: 'Roboto';
+    font-family: 'Futura';
+  }
+
+  h1{
+    font-family: 'Rachel'
   }
 
   a,
@@ -66,6 +70,22 @@ injectGlobal`
     font-family: 'Futura Std Book';
     src: url(${require(`./../assets/fonts/FuturaStd-Book.woff2`)} format('woff2'),
         url(${require(`./../assets/fonts/FuturaStd-Book.woff`)} format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Rachel';
+    src: url(${require('./../assets/fonts/RachelItalic.woff2')} format('woff2'),
+        url(require('./../assets/fonts/RachelItalic.woff')) format('woff');
+    font-weight: 500;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Rachel';
+    src: url(require('./../assets/fonts/Rachel.woff2')) format('woff2'),
+        url(require('./../assets/fonts/Rachel.woff') format('woff');
     font-weight: normal;
     font-style: normal;
 }

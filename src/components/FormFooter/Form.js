@@ -7,6 +7,11 @@ import Select from './elements/Select';
 import SelectionsData from './elements/SelectionsData';
 
 class Form extends Component {
+  handleClick = e => {
+    e.preventDefault();
+    console.log('Hello');
+  };
+
   render() {
     return (
       <FormWrapper id="register">
@@ -16,7 +21,7 @@ class Form extends Component {
         <SubheaderText>
           Register today and live a naturally connected life.
         </SubheaderText>
-        <form>
+        <form onSubmit={e => this.handleClick(e)}>
           <Input type="text" placeholder="First Name *" required />
           <Input type="text" placeholder="Last Name *" required />
           <Input type="text" placeholder="Email *" required />
@@ -34,15 +39,10 @@ class Form extends Component {
             Canada
           </option>
         </Select>
-        <Select type="text" placeholder="Contact Preference">
-          <option value="any">Any</option>
-          <option value="any">Email</option>
-          <option value="any">Phone</option>
-          <option value="any">Work</option>
-          <option value="any">Agent</option>
-          <option value="any">Text Message</option>
-        </Select> */}
-
+     */}
+          <Select options={SelectionsData[2].options} required>
+            {SelectionsData[2].question}
+          </Select>
           <Select options={SelectionsData[0].options} required>
             {SelectionsData[0].question}
           </Select>
@@ -60,7 +60,9 @@ class Form extends Component {
   }
 }
 
-const FormWrapper = styled.div``;
+const FormWrapper = styled.div`
+  max-width: 927px;
+`;
 
 const HeaderText = styled.h1`
   font-style: italic;
@@ -92,6 +94,7 @@ const SubheaderText = styled.h2`
   text-align: center;
   font-size: 16px;
   letter-spacing: 1.5px;
+  font-weight: 300;
 `;
 
 const Button = styled.button`

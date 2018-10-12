@@ -18,6 +18,7 @@ const InputField = styled.input`
   margin: 10px 0;
   padding: 10px 0;
   color: white;
+  font-family: 'Rachel';
   &:focus {
     border: 1px solid ${theme.colorYellow};
     outline: none !important;

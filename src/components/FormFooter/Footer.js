@@ -16,7 +16,10 @@ const Footer = () => (
     </Text>
 
     <TextContainer>
-      <MapImage src={Map} />
+      <MapWrapper>
+        <MapImage src={Map} />
+      </MapWrapper>
+
       <TextWrapper>
         <Text className="light-gray">
           For more information <br />
@@ -24,14 +27,14 @@ const Footer = () => (
         </Text>
 
         {/*polymorphic prop - as?? */}
-        <Text as="a" className="larger">
-          604.370.6700
+        <Text className="larger">
+          <a>604.370.6700</a>
         </Text>
-        <Text as="a" className="larger">
-          info@westgateliving.com
+        <Text className="larger">
+          <a>info@westgateliving.com</a>
         </Text>
 
-        <Text className="light-gray">Developed By</Text>
+        <Text className="light-gray bottom">Developed By</Text>
         <ImageContainer>
           <Image src={BeneLogo} alt="Bene Logo" />
         </ImageContainer>
@@ -45,6 +48,7 @@ const FooterWrapper = styled.div`
   flex-direction: column;
   justify-content: center;
   margin-top: 30px;
+  max-width: 927px;
 `;
 
 const Text = styled.p`
@@ -59,6 +63,15 @@ const Text = styled.p`
   }
   &.larger {
     font-size: 14px;
+  }
+
+  &.bottom {
+    margin-top: 50px;
+  }
+
+  a {
+    color: white;
+    display: block;
   }
 `;
 
@@ -80,14 +93,23 @@ const TextWrapper = styled.div`
   justify-content: center;
 `;
 
+const MapWrapper = styled.div`
+  width: 80%;
+  margin: 20px auto;
+  /* @media (min-width: 768px) {
+    width: 100%;
+    margin: 0;
+  } */
+`;
+
 const MapImage = styled.img`
   width: 100%;
   margin: 10% 0;
 
-  @media (min-width: 768px) {
+  /* @media (min-width: 768px) {
     width: 60%;
     display: inline-block;
-  }
+  } */
 `;
 
 const ImageContainer = styled.div`

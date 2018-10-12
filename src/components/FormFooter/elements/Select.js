@@ -23,8 +23,9 @@ class Select extends Component {
         <SelectMenu
           className={this.state.color}
           onChange={() => this.handleChangeColor()}
+          defaultValue=""
         >
-          <option value="" disabled selected>
+          <option value="" disabled>
             {this.props.children}
           </option>
           {/* <option value="" disabled>
@@ -54,8 +55,8 @@ const SelectMenu = styled.select`
   border-radius: 0px;
   -webkit-appearance: none;
   position: relative;
+  font-family: 'Rachel';
   /* TODO: How to colour just the placeholder/disabled value in the light gray colour? */
-
   /* option:checked {
     color: white;
   } */
