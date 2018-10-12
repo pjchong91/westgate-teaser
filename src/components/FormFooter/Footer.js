@@ -72,6 +72,7 @@ const Text = styled.p`
   a {
     color: white;
     display: block;
+    line-height: 1.15;
   }
 `;
 
@@ -96,20 +97,11 @@ const TextWrapper = styled.div`
 const MapWrapper = styled.div`
   width: 80%;
   margin: 20px auto;
-  /* @media (min-width: 768px) {
-    width: 100%;
-    margin: 0;
-  } */
 `;
 
 const MapImage = styled.img`
   width: 100%;
   margin: 10% 0;
-
-  /* @media (min-width: 768px) {
-    width: 60%;
-    display: inline-block;
-  } */
 `;
 
 const ImageContainer = styled.div`
