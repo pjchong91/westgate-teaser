@@ -12,6 +12,7 @@ class Home extends Component {
     return (
       <Root>
         <LandingBanner />
+
         <Description />
 
         <FormFooter>

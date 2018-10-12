@@ -48,6 +48,20 @@ injectGlobal`
       url('/assets/fonts/Roboto-Regular.woff') format('woff');
   } */
 
+@keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+
+    to {
+      opacity: 1;
+    }
+  }
+
+  .fadeIn {
+    animation-name: fadeIn;
+  }
+
 @font-face {
     font-family: 'Futura Std Book';
     src: url(${require(`./../assets/fonts/FuturaStd-Book.woff2`)} format('woff2'),

@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import styled from 'styled-components';
 import theme from './../styles/theme.js';
 
+import ScrollAnimation from './../components/ScrollAnimation.js';
 import DescriptionBackground from './../assets/images/Description-Background.png';
 import Homes from './../assets/images/Homes.png';
 
@@ -9,21 +10,27 @@ class Description extends Component {
   render() {
     return (
       <DescriptionSection>
-        <HeaderText>
-          Luxurious
-          <br /> Parkside Homes
-        </HeaderText>
+        <ScrollAnimation>
+          <HeaderText>
+            Luxurious
+            <br /> Parkside Homes
+          </HeaderText>
+        </ScrollAnimation>
+        {/* <ScrollAnimation> */}
         <ImageContainer>
           <Image src={Homes} alt="Homes" />
         </ImageContainer>
-        <TextWrapper>
-          <DescriptionText>
-            A gateway to the city - a naturally spectacular place to call home,
-            the homes of Westgate give you both. Together with the contemporary
-            style designed into every home, Westgate gives you a naturally
-            luxurious lifestyle that is second to none.
-          </DescriptionText>
-        </TextWrapper>
+        {/* </ScrollAnimation> */}
+        <ScrollAnimation>
+          <TextWrapper>
+            <DescriptionText>
+              A gateway to the city - a naturally spectacular place to call
+              home, the homes of Westgate give you both. Together with the
+              contemporary style designed into every home, Westgate gives you a
+              naturally luxurious lifestyle that is second to none.
+            </DescriptionText>
+          </TextWrapper>
+        </ScrollAnimation>
       </DescriptionSection>
     );
   }

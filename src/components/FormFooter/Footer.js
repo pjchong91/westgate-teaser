@@ -4,6 +4,7 @@ import theme from './../../styles/theme.js';
 
 import Map from './../../assets/images/Map.png';
 import BeneLogo from './../../assets/images/bene-group.png';
+
 const Footer = () => (
   <FooterWrapper>
     <Text>
@@ -71,6 +72,7 @@ const TextContainer = styled.div`
     }
   }
 `;
+
 const TextWrapper = styled.div`
   padding: 30px;
   display: flex;
