@@ -1,27 +1,40 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
+import theme from './../styles/theme.js';
 
-import Hero from 'components/Hero';
-import Footer from 'components/Footer';
-import SectionContent from 'components/Sections/Content';
-import SectionRegister from 'components/Sections/Register';
+import LandingBanner from './../components/LandingBanner.js';
+import Description from './../components/Description.js';
+import Form from './../components/FormFooter/Form.js';
+import Footer from './../components/FormFooter/Footer.js';
 
 class Home extends Component {
-  handleClick = () => {
-  }
-  
   render() {
     return (
-      <Wrapper onClick={this.handleClick}>
-        <Hero />
-        <SectionContent />
-        <SectionRegister />
-        <Footer/>
-      </Wrapper>
+      <Root>
+        <LandingBanner />
+
+        <Description />
+
+        <FormFooter>
+          <Form />
+          <Footer />
+        </FormFooter>
+      </Root>
     );
   }
 }
 
-const Wrapper = styled.main``;
+const Root = styled.div`
+  min-height: 100%;
+`;
+
+const FormFooter = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: ${theme.colorPurple};
+  padding: 2%;
+`;
 
 export default Home;

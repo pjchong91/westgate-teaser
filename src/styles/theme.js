@@ -1,4 +1,6 @@
 export default {
-  colorPrimary: '#3A2D33',
-  colorSecondary: '#DFCEA6',
+  colorPrimary: '#00d8ff',
+  colorPurple: '#3A2D33',
+  colorLightGray: '#80767A',
+  colorYellow: '#DFCEA6',
 };
