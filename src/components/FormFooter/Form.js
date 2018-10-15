@@ -4,7 +4,7 @@ import theme from './../../styles/theme.js';
 
 import Input from './elements/Input';
 import Select from './elements/Select';
-import SelectionsData from './elements/SelectionsData';
+import SelectionsData from './../../data/SelectionsData';
 
 class Form extends Component {
   handleClick = e => {
