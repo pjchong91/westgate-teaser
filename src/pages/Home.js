@@ -1,11 +1,10 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
-import theme from './../styles/theme.js';
 
-import LandingBanner from './../components/LandingBanner.js';
-import Description from './../components/Description.js';
-import Form from './../components/FormFooter/Form.js';
-import Footer from './../components/FormFooter/Footer.js';
+import LandingBanner from 'components/LandingBanner';
+import Description from 'components/Description';
+import Form from 'components/FormFooter/Form';
+import Footer from 'components/FormFooter/Footer';
 
 class Home extends Component {
   render() {
@@ -33,7 +32,7 @@ const FormFooter = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: ${theme.colorPurple};
+  background-color: ${({ theme }) => theme.colorPurple};
   padding: 2%;
 `;
 

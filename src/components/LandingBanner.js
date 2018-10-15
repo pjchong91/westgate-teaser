@@ -1,11 +1,10 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
-import theme from './../styles/theme';
 import AnchorLink from 'react-anchor-link-smooth-scroll';
 
-import HeroImage from './../assets/images/westgate_mask.svg';
-import HeroBackground from './../assets/images/Hero-Background.jpeg';
-import Logo from './../assets/images/Logo@4x.png';
+import imgHeroImage from 'src/assets/images/westgate_mask.svg';
+import imgHeroBackground from 'src/assets/images/Hero-Background.jpeg';
+import imgLogo from 'src/assets/images/Logo@4x.png';
 
 class LandingBanner extends Component {
   render() {
@@ -15,7 +14,7 @@ class LandingBanner extends Component {
           Register
         </AnchorLink>
         <MaskContainer className="logo-w">
-          <Image src={HeroImage} />
+          <Image src={imgHeroImage} />
           <Span />
           <Span />
           <Span />
@@ -23,7 +22,7 @@ class LandingBanner extends Component {
         </MaskContainer>
 
         <LogoContainer>
-          <Image className="logo" src={Logo} alt="Westgate Logo" />
+          <Image className="logo" src={imgLogo} alt="Westgate Logo" />
         </LogoContainer>
       </HeroSection>
     );
@@ -31,7 +30,7 @@ class LandingBanner extends Component {
 }
 
 const HeroSection = styled.div`
-  background: url(${HeroBackground});
+  background: url(${imgHeroBackground});
   background-size: cover;
   background-repeat: no-repeat;
   background-position: 80% 10%;
@@ -82,7 +81,7 @@ const Image = styled.img`
 `;
 
 const Span = styled.span`
-  background-color: ${theme.colorPurple};
+  background-color: ${({ theme }) => theme.colorPurple};
   position: absolute;
   height: 100vh;
   width: 100vw;

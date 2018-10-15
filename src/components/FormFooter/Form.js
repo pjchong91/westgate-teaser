@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
-import theme from './../../styles/theme.js';
+import media from 'src/styles/media';
 
 import Input from './elements/Input';
 import Select from './elements/Select';
-import SelectionsData from './../../data/SelectionsData';
+import selections from 'src/data/selections';
 
 class Form extends Component {
   handleClick = e => {
@@ -40,15 +40,15 @@ class Form extends Component {
           </option>
         </Select>
      */}
-          <Select options={SelectionsData[2].options} required>
-            {SelectionsData[2].question}
+          <Select options={selections.agent.options} required>
+            {selections.agent.question}
           </Select>
-          <Select options={SelectionsData[0].options} required>
+          {/* <Select options={SelectionsData[0].options} required>
             {SelectionsData[0].question}
           </Select>
           <Select options={SelectionsData[1].options} required>
             {SelectionsData[1].question}
-          </Select>
+          </Select> */}
 
           <Text>
             By cliking submit, you have agreed to receive emails from Westgate.
@@ -66,7 +66,7 @@ const FormWrapper = styled.div`
 
 const HeaderText = styled.h1`
   font-style: italic;
-  color: ${theme.colorPurple};
+  color: ${({ theme }) => theme.colorPurple};
   text-align: center;
   font-size: 24px;
   text-transform: uppercase;
@@ -77,13 +77,13 @@ const HeaderText = styled.h1`
     color: white;
   }
 
-  @media (min-width: 768px) {
+  @media (min-width: ${media.smup}) {
     font-size: 30px;
   }
 `;
 
 const Text = styled.p`
-  color: ${theme.colorLightGray};
+  color: ${({ theme }) => theme.colorLightGray};
   font-size: 16px;
   margin: 40px 0;
   text-align: center;
@@ -98,8 +98,8 @@ const SubheaderText = styled.h2`
 `;
 
 const Button = styled.button`
-  background-color: ${theme.colorYellow};
-  color: ${theme.colorPurple};
+  background-color: ${({ theme }) => theme.colorYellow};
+  color: ${({ theme }) => theme.colorPurple};
   padding: 20px 50px;
   letter-spacing: 2px;
   text-transform: uppercase;

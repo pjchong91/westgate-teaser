@@ -1,10 +1,9 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
-import theme from './../styles/theme.js';
 
-import ScrollAnimation from './../components/ScrollAnimation.js';
-import DescriptionBackground from './../assets/images/Description-Background.png';
-import Homes from './../assets/images/Homes.png';
+import ScrollAnimation from 'components/ScrollAnimation';
+import imgDescriptionBackground from './../assets/images/Description-Background.png';
+import imgHomes from './../assets/images/Homes.png';
 
 class Description extends Component {
   render() {
@@ -18,7 +17,7 @@ class Description extends Component {
         </ScrollAnimation>
         <ScrollAnimation>
           <ImageContainer>
-            <Image src={Homes} alt="Homes" />
+            <Image src={imgHomes} alt="Homes" />
           </ImageContainer>
         </ScrollAnimation>
         <ScrollAnimation>
@@ -47,7 +46,7 @@ const DescriptionSection = styled.div`
       rgba(255, 255, 255, 0.8),
       rgba(255, 255, 255, 0.8)
     ),
-    url(${DescriptionBackground});
+    url(${imgDescriptionBackground});
   background-position: bottom left;
   background-size: 60%;
   background-repeat: no-repeat;
@@ -55,7 +54,7 @@ const DescriptionSection = styled.div`
 
 const HeaderText = styled.h1`
   font-style: italic;
-  color: ${theme.colorPurple};
+  color: ${({ theme }) => theme.colorPurple};
   text-align: center;
   font-size: 24px;
   text-transform: uppercase;
@@ -70,7 +69,6 @@ const HeaderText = styled.h1`
 `;
 
 const ImageContainer = styled.div`
-  /* max-width: 100%; */
   max-width: 972px;
 `;
 

@@ -1,9 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
-import theme from './../../styles/theme.js';
+import media from 'src/styles/media';
 
-import Map from './../../assets/images/Map.png';
-import BeneLogo from './../../assets/images/bene-group.png';
+import imgMap from 'src/assets/images/Map.png';
+import imgBeneLogo from 'src/assets/images/bene-group.png';
 
 const Footer = () => (
   <FooterWrapper>
@@ -17,7 +17,7 @@ const Footer = () => (
 
     <TextContainer>
       <MapWrapper>
-        <MapImage src={Map} />
+        <MapImage src={imgMap} />
       </MapWrapper>
 
       <TextWrapper>
@@ -36,7 +36,7 @@ const Footer = () => (
 
         <Text className="light-gray bottom">Developed By</Text>
         <ImageContainer>
-          <Image src={BeneLogo} alt="Bene Logo" />
+          <Image src={imgBeneLogo} alt="Bene Logo" />
         </ImageContainer>
       </TextWrapper>
     </TextContainer>
@@ -59,7 +59,7 @@ const Text = styled.p`
   line-height: 2;
   &.light-gray {
     line-height: 1;
-    color: ${theme.colorLightGray};
+    color: ${({ theme }) => theme.colorLightGray};
   }
   &.larger {
     font-size: 14px;
@@ -77,7 +77,7 @@ const Text = styled.p`
 `;
 
 const TextContainer = styled.div`
-  @media (min-width: 768px) {
+  @media (min-width: ${media.smup}) {
     display: flex;
     flex-direction: row;
 
@@ -108,7 +108,7 @@ const ImageContainer = styled.div`
   max-width: 100%;
   margin: 20px auto;
 
-  @media (min-width: 768px) {
+  @media (min-width: ${media.smup}) {
     margin: 20px 0;
   }
 `;

@@ -1,19 +1,19 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
-import theme from './../../../styles/theme';
+import media from 'src/styles/media';
 
-import Caret from './../../../assets/images/caret.svg';
+import imgCaret from 'src/assets/images/caret.svg';
 
 class Select extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      color: 'disabled',
+      isEnabled: false,
     };
   }
 
   handleChangeColor = () => {
-    this.setState({ color: 'enabled' });
+    this.setState({ isEnabled: true });
   };
 
   render() {
@@ -22,15 +22,14 @@ class Select extends Component {
       <SelectWrapper>
         <SelectMenu
           className={this.state.color}
-          onChange={() => this.handleChangeColor()}
+          onChange={this.handleChangeColor}
           defaultValue=""
+          isEnabled={this.state.isEnabled}
         >
           <option value="" disabled>
             {this.props.children}
           </option>
-          {/* <option value="" disabled>
-            {this.props.children}
-          </option> */}
+
           {this.props.options &&
             this.props.options.map(option => (
               <option value={option.value} key={option.value}>
@@ -47,32 +46,30 @@ const SelectMenu = styled.select`
   width: 100%;
   background: transparent;
   border: none;
-  border-bottom: 1px solid ${theme.colorLightGray};
+  border-bottom: 1px solid ${({ theme }) => theme.colorLightGray};
   font-size: 16px;
+  font-family: 'Rachel';
   line-height: 2;
   margin: 10px 0;
   padding: 10px 0;
   border-radius: 0px;
   -webkit-appearance: none;
   position: relative;
-  font-family: 'Rachel';
-  /* TODO: How to colour just the placeholder/disabled value in the light gray colour? */
-  /* option:checked {
-    color: white;
-  } */
-  &.disabled {
-    color: ${theme.colorLightGray};
+  color: ${props => (props.isEnabled ? 'white' : props.theme.colorLightGray)};
+
+  /* &.disabled {
+    color: ${({ theme }) => theme.colorLightGray};
   }
 
   &.enabled {
     color: white;
-  }
+  } */
   &:focus {
-    border: 1px solid ${theme.colorYellow};
+    border: 1px solid ${({ theme }) => theme.colorYellow};
     outline: none !important;
   }
 
-  @media (min-width: 768px) {
+  @media (min-width: ${media.smup}) {
     width: 46%;
     margin: 2%;
   }
@@ -85,7 +82,7 @@ const SelectWrapper = styled.div`
     width: 30px;
     height: 30px;
     display: inline-block;
-    background: url(${Caret});
+    background: url(${imgCaret});
     background-size: contain;
     background-repeat: no-repeat;
     position: absolute;
