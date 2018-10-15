@@ -19,17 +19,17 @@ class Counter extends Component {
 
   render() {
     return (
-      <Root>
+      <Wrapper>
         <p>{this.props.count}</p>
         <button onClick={this.handleClickIncrement}>Increment</button>
         <button onClick={this.handleClickDecrement}>Decrement</button>
         <button onClick={this.handleClickReset}>Reset</button>
-      </Root>
+      </Wrapper>
     );
   }
 }
 
-const Root = styled.div`
+const Wrapper = styled.div`
   button {
     margin: 0 15px;
   }
@@ -49,7 +49,4 @@ const mapDispatchToProps = dispatch =>
     dispatch
   );
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(Counter);
+export default connect(mapStateToProps, mapDispatchToProps)(Counter);

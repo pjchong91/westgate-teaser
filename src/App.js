@@ -1,18 +1,14 @@
 import React, { Component } from 'react';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import { Router, Route, Switch } from 'react-router-dom';
+import { Provider } from 'react-redux';
 import { TransitionGroup, CSSTransition } from 'react-transition-group';
 import styled from 'styled-components';
 import { hot } from 'react-hot-loader';
-import 'src/styles/global';
-
-import { prerenderStyles } from 'src/plugins/prerender';
-import UpdateLanguage from 'src/plugins/language';
+import store from 'src/redux/store';
+import history from 'src/plugins/history';
+import 'src/styles/global.css';
 
 class App extends Component {
-  componentDidMount() {
-    prerenderStyles();
-  }
-
   generateRoutes() {
     return process.env.__ROUTES__.map((route, index) => {
       const { path, component } = route;
@@ -21,31 +17,43 @@ class App extends Component {
     });
   }
 
+  componentDidMount() {
+    new window.GambitSmoothScroll({
+      amount: 150,
+      speed: 1500,
+    });
+  }
+
   render() {
     return (
-      <Router>
-        <Route
-          render={({ location }) => (
-            <AppWrapper>
-              <TransitionGroup>
-                <CSSTransition
-                  key={location.key}
-                  timeout={500}
-                  classNames="fade"
-                >
-                  <Switch location={location}>{this.generateRoutes()}</Switch>
-                </CSSTransition>
-              </TransitionGroup>
-              <UpdateLanguage location={location} />
-            </AppWrapper>
-          )}
-        />
-      </Router>
+      <Provider store={store}>
+        <Router history={history}>
+          <Route
+            render={({ location }) => (
+              <AppWrapper>
+                <TransitionGroup>
+                  <CSSTransition
+                    key={location.key}
+                    timeout={500}
+                    classNames="fade"
+                  >
+                    <Switch location={location}>{this.generateRoutes()}</Switch>
+                  </CSSTransition>
+                </TransitionGroup>
+              </AppWrapper>
+            )}
+          />
+        </Router>
+      </Provider>
     );
   }
 }
 
 const AppWrapper = styled.div`
+  background: url('assets/images/westgate-bg.jpg');
+  background-size: cover;
+  background-position: center center;
+  background-attachment: fixed;
   .fade-enter {
     opacity: 0;
   }
@@ -59,7 +67,7 @@ const AppWrapper = styled.div`
   .fade-exit.fade-exit-active {
     opacity: 0;
     transition: all 0.5s;
-  }
+  
 `;
 
 export default hot(module)(App);
